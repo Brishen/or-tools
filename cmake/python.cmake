@@ -196,6 +196,7 @@ configure_file(
   @ONLY)
 install(SCRIPT ${PROJECT_BINARY_DIR}/python/python-install.cmake)
 
+set(BUILD_TESTING OFF)
 # Test
 if(BUILD_TESTING)
   # Look for python module venv
