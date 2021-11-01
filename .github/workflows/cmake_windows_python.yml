@@ -8,6 +8,7 @@ jobs:
     runs-on: windows-latest
     steps:
     - uses: actions/checkout@v2
+    - uses: actions/setup-python@v3.10.0
     - name: Check cmake
       run: cmake --version
     - name: Install SWIG 4.0.2
@@ -18,7 +19,7 @@ jobs:
     - name: Check swig
       run: swig -version
     - name: Add Python binaries to path
-      run: echo "$((Get-Item ~).FullName)/AppData/Roaming/Python/Python39/Scripts" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
+      run: echo "$((Get-Item ~).FullName)/AppData/Roaming/Python/Python310/Scripts" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
     - name: Configure
       run: cmake -S. -Bbuild -G "Visual Studio 16 2019" -DCMAKE_BUILD_TYPE=Release -DBUILD_PYTHON=ON -DBUILD_CXX_SAMPLES=OFF -DBUILD_CXX_EXAMPLES=OFF
     - name: Build
