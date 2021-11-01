@@ -8,7 +8,13 @@ jobs:
     runs-on: windows-latest
     steps:
     - uses: actions/checkout@v2
-    - uses: actions/setup-python@v3.10.0
+    - name: Setup Python
+      uses: actions/setup-python@v2.2.2
+      with:
+        # Version range or exact version of a Python version to use, using SemVer's version range syntax.
+        python-version: 3.10 # optional, default is 3.x
+        # The target architecture (x86, x64) of the Python interpreter.
+        # Used to pull python distributions from actions/python-versions. Since there's a default, this is typically not supplied by the user.
     - name: Check cmake
       run: cmake --version
     - name: Install SWIG 4.0.2
