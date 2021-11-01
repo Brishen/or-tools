@@ -1,6 +1,9 @@
 name: Make Windows Python
 
-on: [push, pull_request]
+on: 
+  push:
+    branches: 
+    - stable
 
 jobs:
   # Building using the github runner environement directly.
@@ -27,12 +30,12 @@ jobs:
     - name: Check Python
       run: tools\make detect_python
     - name: Build third party
-      run: tools\make third_party -j4
+      run: tools\make third_party -j8
     - name: Build C++
-      run: tools\make cc -j4
+      run: tools\make cc -j8
     - name: Build Python
-      run: tools\make python -j4
+      run: tools\make python -j8
     - name: Test Python
-      run: tools\make test_python -j4
+      run: tools\make test_python -j8
     - name: Create wheel package
       run: tools\make package_python
