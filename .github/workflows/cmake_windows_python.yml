@@ -39,5 +39,7 @@ jobs:
       with:
         name: windows-whl
         path: |
-          dist
+          build/dist/*.whl
+          dist/*.whl
+          build/*.whl
           
